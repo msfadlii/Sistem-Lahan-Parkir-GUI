@@ -1,0 +1,32 @@
+[
+  {
+    "harga": 0,
+    "tanggal": "2024-01-03 11:20",
+    "mobil": {
+      "plat_nomer": "L 6970 GO"
+    },
+    "admin": {
+      "nama": "budi"
+    }
+  },
+  {
+    "harga": 0,
+    "tanggal": "2024-01-09 05:50",
+    "mobil": {
+      "plat_nomer": "L 1234 JJ"
+    },
+    "admin": {
+      "nama": "budi"
+    }
+  },
+  {
+    "harga": 0,
+    "tanggal": "2024-01-01 10:10",
+    "mobil": {
+      "plat_nomer": "W 8231 ER"
+    },
+    "admin": {
+      "nama": "budi"
+    }
+  }
+]
