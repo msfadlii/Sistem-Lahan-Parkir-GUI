@@ -1,37 +1,36 @@
 package Entity;
-
 public class Parkir {
-    private int harga;
-    private String tanggal;
+    private String tanggalMasuk;
+    private String jamMasuk;
     private String tanggal_keluar;
     private Mobil mobil;
     private Admin admin;
 
-    public Parkir(String plat, String tanggal, String petugas){
+    public Parkir(String plat, String tanggalMasuk, String jamMasuk, String petugas){
         this.mobil = new Mobil(plat);
-        this.tanggal = tanggal;
-        this.harga = harga;
+        this.tanggalMasuk = tanggalMasuk;
+        this.jamMasuk = jamMasuk;
         this.admin = new Admin(petugas);
     }
 
-    public void setTanggal(String tanggal) {
-        this.tanggal = tanggal;
+    public void setTanggalMasuk(String tanggalMasuk) {
+        this.tanggalMasuk = tanggalMasuk;
     }
 
     public void setMobil(String plat) {
         this.mobil = new Mobil(plat);
     }
 
-    public String getTanggal() {
-        return tanggal;
+    public String getTanggalMasuk() {
+        return tanggalMasuk;
+    }
+
+    public String getJamMasuk() {
+        return jamMasuk;
     }
 
     public String getTanggal_keluar() {
         return tanggal_keluar;
-    }
-
-    public int getHarga() {
-        return harga;
     }
 
     public Admin getAdmin() {

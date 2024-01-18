@@ -15,6 +15,14 @@ public class Admin {
         this.nama = nama;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
     public String getNama() {
         return nama;
     }
