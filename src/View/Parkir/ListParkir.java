@@ -4,6 +4,7 @@ import Controller.CheckoutController;
 import Controller.ParkirController;
 import Entity.Parkir;
 import View.Login.Login;
+import com.github.lgooddatepicker.components.DatePicker;
 import com.github.lgooddatepicker.components.DateTimePicker;
 
 import javax.swing.*;
@@ -17,11 +18,11 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class ListParkir extends JFrame implements ActionListener {
-    JLabel menu, namaAdmin, pilihLabel, tglLabel;
+    JLabel menu, namaAdmin, pilihLabel, tglLabel, checkoutLabel;
     JButton menuParkir, menuListParkir, menuListCheckout, logoutButton;
-    DateTimePicker dateTimePicker;
+    DatePicker datePicker;
     JPanel panel;
-    JTextField pilihField;
+    JTextField pilihField, jamField;
     ParkirController parkirController = new ParkirController();
     CheckoutController checkoutController = new CheckoutController();
     static JTable jTable;
@@ -99,35 +100,44 @@ public class ListParkir extends JFrame implements ActionListener {
         header.setBackground(Color.gray);
         header.setForeground(Color.white);
         scrollPane.setColumnHeaderView(header);
+        for (int i = 0; i < jTable.getColumnCount(); i++) {
+            jTable.getColumnModel().getColumn(i).setCellRenderer(cellRenderer);
+        }
 
         //untuk memilih salah satu plat
+        checkoutLabel = new JLabel("Checkout Plat Nomor");
+        checkoutLabel.setBounds(200, 320, 150, 20);
         pilihLabel = new JLabel("Pilih Plat Nomor : ");
-        pilihLabel.setBounds(200, 320, 100, 20);
+        pilihLabel.setBounds(200, 340, 100, 20);
         pilihField = new JTextField();
-        pilihField.setBounds(200, 340, 150, 30);
+        pilihField.setBounds(200, 360, 150, 30);
         btnDelete = new JButton("Delete");
-        btnDelete.setBounds(390, 340, 100, 20);
+        btnDelete.setBounds(390, 360, 100, 20);
         btnDelete.setFocusPainted(false);
         btnDelete.addActionListener(this);
         btnCheckout = new JButton("Checkout");
-        btnCheckout.setBounds(500, 340, 100, 20);
+        btnCheckout.setBounds(500, 360, 100, 20);
         btnCheckout.setFocusPainted(false);
         btnCheckout.addActionListener(this);
 
         tglLabel = new JLabel("Tanggal dan Jam : ");
-        tglLabel.setBounds(200, 370, 150, 20);
-        dateTimePicker = new DateTimePicker();
-        dateTimePicker.setBounds(200, 390, 250, 30);
+        tglLabel.setBounds(200, 390, 150, 20);
+        datePicker = new DatePicker();
+        datePicker.setBounds(200, 410, 200, 30);
+        jamField = new JTextField();
+        jamField.setBounds(410, 410, 100, 30);
 
         add(panel);
         add(scrollPane);
         add(listLabel);
+        add(checkoutLabel);
         add(pilihLabel);
         add(pilihField);
         add(btnDelete);
         add(btnCheckout);
         add(tglLabel);
-        add(dateTimePicker);
+        add(datePicker);
+        add(jamField);
     }
 
     @Override
@@ -167,8 +177,8 @@ public class ListParkir extends JFrame implements ActionListener {
 
         if(event.getSource() == btnCheckout){
             String data = pilihField.getText();
-            tgl = dateTimePicker.getDatePicker().getDateStringOrEmptyString();
-            jam = dateTimePicker.getTimePicker().getTimeStringOrEmptyString();
+            tgl = datePicker.getDateStringOrEmptyString();
+            jam = jamField.getText();
             boolean cek = checkoutController.checkout(data, tgl, jam, Login.nama);
             if(cek){
                 JOptionPane.showMessageDialog(this, "Mobil Berhasil di Checkout !");
@@ -180,8 +190,8 @@ public class ListParkir extends JFrame implements ActionListener {
 
     private static class ParkirTableModel extends AbstractTableModel{
         JCheckBox checkBox;
-        private final String[] COLOUMS = {"Nomor", "Plat Nomor", "Tanggal"};
-        private final Class[] COLOUMS_CLASS = {Integer.class, String.class, String.class};
+        private final String[] COLOUMS = {"Nomor", "Plat Nomor", "Tanggal", "Jam", "Petugas"};
+        private final Class[] COLOUMS_CLASS = {Integer.class, String.class, String.class, String.class, String.class};
         private ArrayList<Parkir> parkirArrayList;
         private ParkirTableModel(ArrayList<Parkir> list){
             this.parkirArrayList = list;
@@ -203,6 +213,10 @@ public class ListParkir extends JFrame implements ActionListener {
                     return parkirArrayList.get(rowIndex).getMobil().getPlat_nomer();
                 case 2 :
                     return parkirArrayList.get(rowIndex).getTanggalMasuk();
+                case 3:
+                    return parkirArrayList.get(rowIndex).getJamMasuk();
+                case 4:
+                    return parkirArrayList.get(rowIndex).getAdmin().getNama();
                 default :
                     return "-";
             }

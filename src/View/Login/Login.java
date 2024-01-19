@@ -79,6 +79,7 @@ public class Login extends JFrame implements ActionListener {
                 message.setText("");
                 JOptionPane.showMessageDialog(this, "Login Berhasil !");
                 nama = loginController.getNama(username);
+                this.setVisible(false);
                 Main.main(null);
             }else{
                 message.setText("Username atau Password salah !");

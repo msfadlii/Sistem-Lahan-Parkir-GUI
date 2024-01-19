@@ -15,8 +15,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class ListCheckout extends JFrame implements ActionListener {
-    JLabel menu, namaAdmin;
-    JButton menuParkir, menuListParkir, menuListCheckout, logoutButton;
+    JLabel menu, namaAdmin, cetakStruk, platLabel;
+    JButton menuParkir, menuListParkir, menuListCheckout, logoutButton, cetakAllButton, cetakButton;
+    JTextField platField;
     JPanel panel;
     static JTable jTable;
     JScrollPane scrollPane;
@@ -76,11 +77,13 @@ public class ListCheckout extends JFrame implements ActionListener {
         jTable.setAutoCreateRowSorter(true);
         jTable.setRowHeight(40);
 
-        //buat kolom nomor jadi tengah
+        //buat kolom jadi tengah
         DefaultTableCellRenderer cellRenderer = new DefaultTableCellRenderer();
         cellRenderer.setHorizontalAlignment(JLabel.CENTER);
-        jTable.getColumnModel().getColumn(0).setCellRenderer(cellRenderer);
         jTable.getColumnModel().getColumn(0).setMaxWidth(50);
+        for (int i = 0; i < jTable.getColumnCount(); i++) {
+            jTable.getColumnModel().getColumn(i).setCellRenderer(cellRenderer);
+        }
 
         scrollPane = new JScrollPane(jTable);
         scrollPane.setBounds(200, 40, 500, 250);
@@ -92,9 +95,28 @@ public class ListCheckout extends JFrame implements ActionListener {
         header.setForeground(Color.white);
         scrollPane.setColumnHeaderView(header);
 
+        cetakAllButton = new JButton("Cetak All");
+        cetakAllButton.setBounds(583, 300, 100, 30);
+        cetakAllButton.addActionListener(this);
+
+        cetakStruk = new JLabel("Cetak Struk");
+        cetakStruk.setBounds(200, 310, 100, 20);
+        platLabel = new JLabel("Pilih Plat Nomor : ");
+        platLabel.setBounds(200, 330, 100, 20);
+        platField = new JTextField();
+        platField.setBounds(200, 350, 120, 30);
+        cetakButton = new JButton("Cetak");
+        cetakButton.setBounds(340, 350, 70, 30);
+        cetakButton.addActionListener(this);
+
         add(panel);
         add(scrollPane);
         add(listLabel);
+        add(cetakStruk);
+        add(platLabel);
+        add(platField);
+        add(cetakAllButton);
+        add(cetakButton);
     }
 
     @Override
@@ -124,7 +146,23 @@ public class ListCheckout extends JFrame implements ActionListener {
             this.setVisible(false);
 
             Login login = new Login();
-            login.main(null);;
+            login.main(null);
+        }
+
+        if(event.getSource() == cetakAllButton){
+            if(checkoutController.cetakStruk("", "all")){
+                JOptionPane.showMessageDialog(this, "Struk berhasil dibuat!");
+            }else{
+                JOptionPane.showMessageDialog(this, "Struk gagal dibuat!");
+            }
+        }
+
+          if(event.getSource() == cetakButton){
+            if(checkoutController.cetakStruk(platField.getText(), "single")){
+                JOptionPane.showMessageDialog(this, "Struk berhasil dibuat!");
+            }else{
+                JOptionPane.showMessageDialog(this, "Plat Nomor Tidak ada!");
+            }
         }
     }
 

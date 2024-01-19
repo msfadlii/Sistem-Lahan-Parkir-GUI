@@ -2,6 +2,7 @@ package View.Parkir;
 
 import Controller.ParkirController;
 import View.Login.Login;
+import com.github.lgooddatepicker.components.DatePicker;
 import com.github.lgooddatepicker.components.DateTimePicker;
 import javax.swing.*;
 import java.awt.*;
@@ -13,8 +14,8 @@ import java.util.Date;
 
 public class Main extends JFrame implements ActionListener {
     JLabel judulLabel, platLabel, tglLabel, menu, namaAdmin;
-    JTextField platField;
-    DateTimePicker dateTimePicker;
+    JTextField platField, jamField;
+    DatePicker datePicker;
     JButton submitButton, menuParkir, menuListParkir, menuListCheckout, logoutButton;
     JPanel panel;
 
@@ -75,8 +76,10 @@ public class Main extends JFrame implements ActionListener {
 
         tglLabel = new JLabel("Tanggal dan Jam : ");
         tglLabel.setBounds(200, 100, 100, 20);
-        dateTimePicker = new DateTimePicker();
-        dateTimePicker.setBounds(200, 120, 250, 30);
+        datePicker = new DatePicker();
+        datePicker.setBounds(200, 120, 180, 30);
+        jamField = new JTextField();
+        jamField.setBounds(390, 120, 100, 30);
 
         submitButton = new JButton("Submit");
         submitButton.setBounds(200, 160, 100, 30);
@@ -88,7 +91,8 @@ public class Main extends JFrame implements ActionListener {
         add(platLabel);
         add(platField);
         add(tglLabel);
-        add(dateTimePicker);
+        add(datePicker);
+        add(jamField);
         add(submitButton);
     }
 
@@ -124,8 +128,8 @@ public class Main extends JFrame implements ActionListener {
 
         if(event.getSource() == submitButton){
             String plat = platField.getText();
-            String tgl = dateTimePicker.getDatePicker().getDateStringOrEmptyString();
-            String jam = dateTimePicker.getTimePicker().getTimeStringOrEmptyString();
+            String tgl = datePicker.getDateStringOrEmptyString();
+            String jam = jamField.getText();
 
             boolean cek = parkirController.insert(plat, tgl, jam, Login.nama);
             if(cek){
@@ -133,7 +137,8 @@ public class Main extends JFrame implements ActionListener {
             }else{
                 JOptionPane.showMessageDialog(this, "Plat berhasil ditambahkan!");
                 platField.setText("");
-                dateTimePicker.clear();
+                datePicker.clear();
+                jamField.setText("");
             }
         }
     }

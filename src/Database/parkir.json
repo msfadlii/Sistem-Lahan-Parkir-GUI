@@ -8,5 +8,75 @@
     "admin": {
       "nama": "budi"
     }
+  },
+  {
+    "tanggalMasuk": "2024-01-05",
+    "jamMasuk": "11:20",
+    "mobil": {
+      "plat_nomer": "W 1234 IO"
+    },
+    "admin": {
+      "nama": "budi"
+    }
+  },
+  {
+    "tanggalMasuk": "2024-01-17",
+    "jamMasuk": "14:40",
+    "mobil": {
+      "plat_nomer": "B 1234 JJ"
+    },
+    "admin": {
+      "nama": "budi"
+    }
+  },
+  {
+    "tanggalMasuk": "2024-01-30",
+    "jamMasuk": "01:01",
+    "mobil": {
+      "plat_nomer": "D 3333 ER"
+    },
+    "admin": {
+      "nama": "budi"
+    }
+  },
+  {
+    "tanggalMasuk": "2024-01-12",
+    "jamMasuk": "07:07",
+    "mobil": {
+      "plat_nomer": "L 4545 RR"
+    },
+    "admin": {
+      "nama": "budi"
+    }
+  },
+  {
+    "tanggalMasuk": "2024-01-16",
+    "jamMasuk": "13:01",
+    "mobil": {
+      "plat_nomer": "L 5544 BB"
+    },
+    "admin": {
+      "nama": "budi"
+    }
+  },
+  {
+    "tanggalMasuk": "2024-01-12",
+    "jamMasuk": "16:23",
+    "mobil": {
+      "plat_nomer": "M 5132 KK"
+    },
+    "admin": {
+      "nama": "ani"
+    }
+  },
+  {
+    "tanggalMasuk": "2024-01-23",
+    "jamMasuk": "05:04",
+    "mobil": {
+      "plat_nomer": "W 7878 RE"
+    },
+    "admin": {
+      "nama": "ani"
+    }
   }
 ]
