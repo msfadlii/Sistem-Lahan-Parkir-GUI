@@ -80,13 +80,16 @@ public class ListCheckout extends JFrame implements ActionListener {
         //buat kolom jadi tengah
         DefaultTableCellRenderer cellRenderer = new DefaultTableCellRenderer();
         cellRenderer.setHorizontalAlignment(JLabel.CENTER);
-        jTable.getColumnModel().getColumn(0).setMaxWidth(50);
+        jTable.getColumnModel().getColumn(0).setMaxWidth(40);
+        jTable.getColumnModel().getColumn(3).setMaxWidth(65);
+        jTable.getColumnModel().getColumn(5).setMaxWidth(65);
+        jTable.getColumnModel().getColumn(7).setMaxWidth(50);
         for (int i = 0; i < jTable.getColumnCount(); i++) {
             jTable.getColumnModel().getColumn(i).setCellRenderer(cellRenderer);
         }
 
         scrollPane = new JScrollPane(jTable);
-        scrollPane.setBounds(200, 40, 500, 250);
+        scrollPane.setBounds(170, 40, 600, 250);
         //mengilangkan border
         scrollPane.setBorder(new LineBorder(new Color(0, 0, 0, 0)));
 
@@ -167,8 +170,8 @@ public class ListCheckout extends JFrame implements ActionListener {
     }
 
     private static class CheckoutTableModel extends AbstractTableModel {
-        private final String[] COLOUMS = {"Nomor", "Plat Nomor", "Tanggal Masuk", "Tanggal Keluar", "Harga", "Petugas"};
-        private final Class[] COLOUMS_CLASS = {Integer.class, String.class, String.class, String.class, Integer.class, String.class};
+        private final String[] COLOUMS = {"Nomor", "Plat Nomor", "Tanggal Masuk", "Jam Masuk", "Tanggal Keluar", "Jam Keluar", "Harga", "Petugas"};
+        private final Class[] COLOUMS_CLASS = {Integer.class, String.class, String.class, String.class, String.class, String.class, Integer.class, String.class};
         private ArrayList<Checkout> checkoutArrayList;
         private CheckoutTableModel(ArrayList<Checkout> list){
             this.checkoutArrayList = list;
@@ -191,10 +194,14 @@ public class ListCheckout extends JFrame implements ActionListener {
                 case 2 :
                     return checkoutArrayList.get(rowIndex).getTanggalMasuk();
                 case 3:
-                    return checkoutArrayList.get(rowIndex).getTanggalKeluar();
+                    return checkoutArrayList.get(rowIndex).getJamMasuk();
                 case 4:
-                    return checkoutArrayList.get(rowIndex).getHarga();
+                    return checkoutArrayList.get(rowIndex).getTanggalKeluar();
                 case 5:
+                    return checkoutArrayList.get(rowIndex).getJamKeluar();
+                case 6:
+                    return checkoutArrayList.get(rowIndex).getHarga();
+                case 7:
                     return checkoutArrayList.get(rowIndex).getAdmin().getNama();
                 default :
                     return "-";

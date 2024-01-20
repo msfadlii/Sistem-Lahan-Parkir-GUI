@@ -1,25 +1,5 @@
 [
   {
-    "tanggalMasuk": "2024-01-04",
-    "jamMasuk": "11:20",
-    "mobil": {
-      "plat_nomer": "L 6970 GO"
-    },
-    "admin": {
-      "nama": "budi"
-    }
-  },
-  {
-    "tanggalMasuk": "2024-01-05",
-    "jamMasuk": "11:20",
-    "mobil": {
-      "plat_nomer": "W 1234 IO"
-    },
-    "admin": {
-      "nama": "budi"
-    }
-  },
-  {
     "tanggalMasuk": "2024-01-17",
     "jamMasuk": "14:40",
     "mobil": {
@@ -47,26 +27,6 @@
     },
     "admin": {
       "nama": "budi"
-    }
-  },
-  {
-    "tanggalMasuk": "2024-01-16",
-    "jamMasuk": "13:01",
-    "mobil": {
-      "plat_nomer": "L 5544 BB"
-    },
-    "admin": {
-      "nama": "budi"
-    }
-  },
-  {
-    "tanggalMasuk": "2024-01-12",
-    "jamMasuk": "16:23",
-    "mobil": {
-      "plat_nomer": "M 5132 KK"
-    },
-    "admin": {
-      "nama": "ani"
     }
   },
   {

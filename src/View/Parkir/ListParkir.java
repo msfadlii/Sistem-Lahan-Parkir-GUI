@@ -182,6 +182,8 @@ public class ListParkir extends JFrame implements ActionListener {
             boolean cek = checkoutController.checkout(data, tgl, jam, Login.nama);
             if(cek){
                 JOptionPane.showMessageDialog(this, "Mobil Berhasil di Checkout !");
+                this.setVisible(false);
+                ListParkir.main(null);
             }else{
                 JOptionPane.showMessageDialog(this, "Plat Nomor yang dicari tidak ada !");
             }

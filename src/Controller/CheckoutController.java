@@ -44,7 +44,8 @@ public class CheckoutController {
                 }else{
                     harga = 10000;
                     long sisaMenit = diffMinutes-10;
-                    int hargaPerHari = (int) Math.ceil((double) sisaMenit/(24 * 60)) * 5000;
+//                    int hargaPerHari = (int) Math.ceil((double) sisaMenit/(24 * 60)) * 5000;
+                    int hargaPerHari = (int)diffDays * 5000;
                     totalHarga = harga + hargaPerHari;
                     System.out.println(totalHarga);
                 }

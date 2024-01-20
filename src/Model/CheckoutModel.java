@@ -34,6 +34,7 @@ public class CheckoutModel {
     public void checkout(String plat, String tanggal, String jam, int harga, String petugas){
         Parkir parkir = parkirModel.getParkir(plat);
         listCheckout.add(new Checkout(plat, parkir.getTanggalMasuk(), parkir.getJamMasuk(), tanggal, jam, harga, petugas));
+        parkirModel.delete(plat);
         modelJSONCheckout.writeToFile(listCheckout);
     }
 

@@ -1,14 +1,14 @@
 package Entity;
 
 public class Checkout extends Parkir{
-    int harga;
     String tanggalKeluar;
     String jamKeluar;
+    int harga;
     public Checkout(String plat, String tanggalMasuk, String jamMasuk, String tanggalKeluar, String jamKeluar, int harga, String petugas) {
         super(plat, tanggalMasuk, jamMasuk, petugas);
-        this.harga = harga;
         this.tanggalKeluar = tanggalKeluar;
         this.jamKeluar = jamKeluar;
+        this.harga = harga;
     }
 
     public int getHarga() {

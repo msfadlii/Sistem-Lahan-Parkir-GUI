@@ -75,7 +75,7 @@ public class Main extends JFrame implements ActionListener {
         platField.setBounds(200, 70, 100, 30);
 
         tglLabel = new JLabel("Tanggal dan Jam : ");
-        tglLabel.setBounds(200, 100, 100, 20);
+        tglLabel.setBounds(200, 100, 150, 20);
         datePicker = new DatePicker();
         datePicker.setBounds(200, 120, 180, 30);
         jamField = new JTextField();
