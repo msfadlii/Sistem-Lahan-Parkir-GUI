@@ -23,36 +23,48 @@ public class Login extends JFrame implements ActionListener {
         setLocationRelativeTo(null);
         setTitle("Login Admin");
         component();
+        ImageIcon imageIcon = new ImageIcon("src/res/parking-car.png");
+        setIconImage(imageIcon.getImage());
         setVisible(true);
     }
 
     public void component(){
         titleLabel = new JLabel("Aplikasi Lahan Parkir");
         titleLabel.setBounds(200, 20, 250, 30);
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        titleLabel.setFont(new Font("Times New Roman", Font.BOLD, 20));
 
         unameLabel = new JLabel("Username : ");
         unameLabel.setBounds(170, 100, 150, 30);
+        unameLabel.setFont(new Font("Times New Roman", Font.BOLD, 12));
         usernameField = new JTextField();
         usernameField.setBounds(170, 130, 250, 30 );
+        usernameField.setFont(new Font("Times New Roman", Font.BOLD, 12));
 
         passLabel = new JLabel("Password : ");
         passLabel.setBounds(170, 160, 150, 30);
+        passLabel.setFont(new Font("Times New Roman", Font.BOLD, 12));
         passwordField = new JPasswordField();
         passwordField.setBounds(170, 190, 250, 30);
+        passwordField.setFont(new Font("Times New Roman", Font.BOLD, 12));
 
         showPassword = new JCheckBox("Show Password");
         showPassword.setBounds(170, 220, 130, 20);
+        showPassword.setFont(new Font("Times New Roman", Font.BOLD, 12));
         showPassword.addActionListener(this);
 
         submitButton = new JButton("Submit");
         submitButton.setBounds(320, 250, 100, 30);
+        submitButton.setFont(new Font("Times New Roman", Font.BOLD, 12));
         submitButton.setFocusPainted(false);
         submitButton.addActionListener(this);
 
         message = new JLabel();
         message.setBounds(200, 290, 200, 30);
-        message.setFont(new Font("Arial", Font.ITALIC, 12));
+        message.setFont(new Font("Times New Roman", Font.ITALIC, 12));
+
+        ImageIcon back = new ImageIcon("src/res/back5.png");
+        JLabel labelBack = new JLabel(back);
+        labelBack.setBounds(250, 70, 500, 300);
 
         add(titleLabel);
         add(unameLabel);
@@ -62,12 +74,12 @@ public class Login extends JFrame implements ActionListener {
         add(submitButton);
         add(message);
         add(showPassword);
+        add(labelBack);
 
     }
     public static void main(String[] args) {
         Login login = new Login();
         login.setFrame();
-
     }
     @Override
     public void actionPerformed(ActionEvent event) {

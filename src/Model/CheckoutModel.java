@@ -2,7 +2,7 @@ package Model;
 
 import Entity.Checkout;
 import Entity.Parkir;
-import Model.JSON.ModelJSON;
+import Model.JSON.JSONModel;
 import View.Login.Login;
 import com.google.gson.reflect.TypeToken;
 
@@ -16,7 +16,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class CheckoutModel {
-    ModelJSON modelJSONCheckout;
+    JSONModel jsonModelCheckout;
     ParkirModel parkirModel;
     DateTimeFormatter formatTanggal = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     DateTimeFormatter formatJam = DateTimeFormatter.ofPattern("HH:mm");
@@ -25,17 +25,17 @@ public class CheckoutModel {
     private ArrayList<Checkout> listCheckout;
     public CheckoutModel(){
         parkirModel = new ParkirModel();
-        modelJSONCheckout = new ModelJSON<>("src/Database/checkout.json");
+        jsonModelCheckout = new JSONModel<>("src/Database/checkout.json");
         listCheckout = new ArrayList<>();
 
-        listCheckout = modelJSONCheckout.readFromFile(new TypeToken<ArrayList<Checkout>>() {}.getType());
+        listCheckout = jsonModelCheckout.readFromFile(new TypeToken<ArrayList<Checkout>>() {}.getType());
     }
 
     public void checkout(String plat, String tanggal, String jam, int harga, String petugas){
         Parkir parkir = parkirModel.getParkir(plat);
         listCheckout.add(new Checkout(plat, parkir.getTanggalMasuk(), parkir.getJamMasuk(), tanggal, jam, harga, petugas));
         parkirModel.delete(plat);
-        modelJSONCheckout.writeToFile(listCheckout);
+        jsonModelCheckout.writeToFile(listCheckout);
     }
 
     public ArrayList<Checkout> getListCheckout(){
@@ -44,7 +44,7 @@ public class CheckoutModel {
 
     public int searchPlat(String plat){
         for (Checkout checkout:listCheckout) {
-            if (checkout.getMobil().getPlat_nomer().equals(plat)){
+            if (checkout.getKendaraan().getPlat_nomer().equals(plat)){
                 return listCheckout.indexOf(checkout);
             }
         }
@@ -82,7 +82,7 @@ public class CheckoutModel {
                 if (listCheckout != null) {
                     for (Checkout checkout : listCheckout){
                         writer.write(
-                                checkout.getMobil().getPlat_nomer()+" \t\t"+
+                                checkout.getKendaraan().getPlat_nomer()+" \t\t"+
                                         checkout.getTanggalMasuk()+" \t\t\t"+
                                         checkout.getJamMasuk()+" \t\t\t"+
                                         checkout.getTanggalKeluar()+" \t\t\t"+
@@ -100,7 +100,7 @@ public class CheckoutModel {
                 writer.write("\t\t\tSTRUK PEMBAYARAN\n");
                 writer.write("===========================================\n");
                 int index = searchPlat(plat);
-                writer.write("Plat Nomor     : "+listCheckout.get(index).getMobil().getPlat_nomer());
+                writer.write("Plat Nomor     : "+listCheckout.get(index).getKendaraan().getPlat_nomer());
                 writer.write("\nTanggal Masuk  : "+listCheckout.get(index).getTanggalMasuk());
                 writer.write("\nJam Masuk      : "+listCheckout.get(index).getJamMasuk());
                 writer.write("\nTanggal Keluar : "+listCheckout.get(index).getTanggalKeluar());

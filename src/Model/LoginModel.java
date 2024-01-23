@@ -1,17 +1,17 @@
 package Model;
 
 import Entity.Admin;
-import Model.JSON.ModelJSON;
+import Model.JSON.JSONModel;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 
-public class LoginModel {
-    ModelJSON modelJSON;
+public class LoginModel{
+   JSONModel jsonModel;
     ArrayList<Admin> adminArrayList;
     public LoginModel(){
-        modelJSON = new ModelJSON<>("src/Database/admin.json");
-        adminArrayList = modelJSON.readFromFile(new TypeToken<ArrayList<Admin>>() {}.getType());
+        jsonModel = new JSONModel("src/Database/admin.json");
+        adminArrayList = jsonModel.readFromFile(new TypeToken<ArrayList<Admin>>() {}.getType());
 //        init();
     }
 //    public void init(){
@@ -21,12 +21,12 @@ public class LoginModel {
 
     public void insert(String username, String password, String nama){
         adminArrayList.add(new Admin(username, password, nama));
-        modelJSON.writeToFile(adminArrayList);
+        jsonModel.writeToFile(adminArrayList);
     }
 
     public void delete(String username){
         adminArrayList.remove(searchAdmin(username));
-        modelJSON.writeToFile(adminArrayList);
+        jsonModel.writeToFile(adminArrayList);
     }
 
     public ArrayList<Admin> listAdmin(){
