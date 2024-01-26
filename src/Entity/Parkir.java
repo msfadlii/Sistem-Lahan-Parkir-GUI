@@ -11,11 +11,6 @@ public class Parkir {
         this.jamMasuk = jamMasuk;
         this.admin = new Admin(petugas);
     }
-
-    public void setTanggalMasuk(String tanggalMasuk) {
-        this.tanggalMasuk = tanggalMasuk;
-    }
-
     public String getTanggalMasuk() {
         return tanggalMasuk;
     }

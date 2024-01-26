@@ -9,11 +9,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Login extends JFrame implements ActionListener {
-    JLabel titleLabel, unameLabel, passLabel, message;
+    JLabel titleLabel, unameLabel, passLabel, message, labelBack;
     JTextField usernameField;
     JPasswordField passwordField;
     JButton submitButton;
     JCheckBox showPassword;
+    ImageIcon back;
     LoginController loginController = new LoginController();
     public static String nama;
     public void setFrame(){
@@ -30,7 +31,7 @@ public class Login extends JFrame implements ActionListener {
 
     public void component(){
         titleLabel = new JLabel("Aplikasi Lahan Parkir");
-        titleLabel.setBounds(200, 20, 250, 30);
+        titleLabel.setBounds(200, 20    , 250, 30);
         titleLabel.setFont(new Font("Times New Roman", Font.BOLD, 20));
 
         unameLabel = new JLabel("Username : ");
@@ -62,8 +63,8 @@ public class Login extends JFrame implements ActionListener {
         message.setBounds(200, 290, 200, 30);
         message.setFont(new Font("Times New Roman", Font.ITALIC, 12));
 
-        ImageIcon back = new ImageIcon("src/res/back5.png");
-        JLabel labelBack = new JLabel(back);
+        back = new ImageIcon("src/res/back5.png");
+        labelBack = new JLabel(back);
         labelBack.setBounds(250, 70, 500, 300);
 
         add(titleLabel);
@@ -75,7 +76,6 @@ public class Login extends JFrame implements ActionListener {
         add(message);
         add(showPassword);
         add(labelBack);
-
     }
     public static void main(String[] args) {
         Login login = new Login();

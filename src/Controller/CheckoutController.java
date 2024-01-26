@@ -12,6 +12,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class CheckoutController {
     CheckoutModel checkoutModel;
@@ -62,13 +64,6 @@ public class CheckoutController {
 
     public ArrayList<Checkout> getListCheckout(){
         return checkoutModel.getListCheckout();
-    }
-
-    public boolean findPlat(String plat){
-        if(checkoutModel.searchPlat(plat) != -1){
-            return true;
-        }
-        return false;
     }
 
     public boolean cetakStruk(String plat, String jenis_cetak){

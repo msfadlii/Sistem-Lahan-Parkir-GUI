@@ -168,14 +168,22 @@ public class Main extends JFrame implements ActionListener {
             if(plat.isEmpty() || tgl.isEmpty() || jam.isEmpty()){
                 JOptionPane.showMessageDialog(this, "Lengkapi Input terlebih dahulu!");
             }else{
-                boolean cek = parkirController.insert(plat, tgl, jam, Login.nama);
-                if(cek){
-                    JOptionPane.showMessageDialog(this, "Plat sudah ada, input plat lain!");
+                if(parkirController.cekTanggal(plat, tgl)){
+                    if(parkirController.cekJam(jam)){
+                        boolean cek = parkirController.insert(plat, tgl, jam, Login.nama);
+                        if(cek){
+                            JOptionPane.showMessageDialog(this, "Plat sudah ada, input plat lain!");
+                        }else{
+                            JOptionPane.showMessageDialog(this, "Plat berhasil ditambahkan!");
+                            platField.setText("");
+                            datePicker.clear();
+                            jamField.setText("");
+                        }
+                    }else{
+                        JOptionPane.showMessageDialog(this, "Masukkan Format Jam yang benar. Contoh: 00:00");
+                    }
                 }else{
-                    JOptionPane.showMessageDialog(this, "Plat berhasil ditambahkan!");
-                    platField.setText("");
-                    datePicker.clear();
-                    jamField.setText("");
+                    JOptionPane.showMessageDialog(this, "Masukkan Tanggal Checkout lebih dari Tanggal Masuk !");
                 }
             }
         }

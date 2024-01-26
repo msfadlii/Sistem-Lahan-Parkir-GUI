@@ -54,11 +54,12 @@ public class CheckoutModel {
     public boolean buatFileStruk(String path, String plat, String jenis_cetak){
         try {
             File myObj = new File(path);
-            if (myObj.createNewFile()) {
-                //file berhasil dibuat
-            } else {
-                //file sudah ada
-            }
+//            if (myObj.createNewFile()) {
+//                //file berhasil dibuat
+//            } else {
+//                //file sudah ada
+//            }
+            myObj.createNewFile();
         } catch (IOException e) {
             e.printStackTrace();
         }

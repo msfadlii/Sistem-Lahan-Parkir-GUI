@@ -109,7 +109,7 @@ public class ListCheckout extends JFrame implements ActionListener {
         }
 
         scrollPane = new JScrollPane(jTable);
-        scrollPane.setBounds(170, 40, 600, 200);
+        scrollPane.setBounds(170, 40, 600, 230);
         //mengilangkan border
         scrollPane.setBorder(new LineBorder(new Color(0, 0, 0, 0)));
 
@@ -118,7 +118,6 @@ public class ListCheckout extends JFrame implements ActionListener {
         header.setForeground(Color.white);
         header.setFont(new Font("Times New Roman", Font.BOLD, 12));
         scrollPane.setColumnHeaderView(header);
-
 
         cetakStruk = new JLabel("Cetak Struk");
         cetakStruk.setBounds(200, 310, 100, 20);
@@ -140,7 +139,7 @@ public class ListCheckout extends JFrame implements ActionListener {
 
         ImageIcon back = new ImageIcon("src/res/back4.png");
         JLabel labelBack = new JLabel(back);
-        labelBack.setBounds(150, 180, 650, 300);
+        labelBack.setBounds(150, 120, 650, 480);
 
         add(panel);
         add(jam);
@@ -207,7 +206,7 @@ public class ListCheckout extends JFrame implements ActionListener {
     }
 
     private static class CheckoutTableModel extends AbstractTableModel {
-        private final String[] COLOUMS = {"Nomor", "Plat Nomor", "Tanggal Masuk", "Jam Masuk", "Tanggal Keluar", "Jam Keluar", "Harga", "Petugas"};
+        private final String[] COLOUMS = {"Nomor", "Plat Nomor", "Tanggal Masuk", "Jam Masuk", "Tanggal Keluar", "Jam Keluar", "Harga", "Admin"};
         private final Class[] COLOUMS_CLASS = {Integer.class, String.class, String.class, String.class, String.class, String.class, Integer.class, String.class};
         private ArrayList<Checkout> checkoutArrayList;
         private CheckoutTableModel(ArrayList<Checkout> list){

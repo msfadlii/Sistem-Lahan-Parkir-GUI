@@ -110,9 +110,11 @@ public class ListParkir extends JFrame implements ActionListener {
         jTable.getColumnModel().getColumn(0).setMaxWidth(50);
 
         scrollPane = new JScrollPane(jTable);
-        scrollPane.setBounds(200, 40, 500, 225);
+        scrollPane.setBounds(200, 40, 500, 230);
         //mengilangkan border
         scrollPane.setBorder(new LineBorder(new Color(0, 0, 0, 0)));
+//        scrollPane.revalidate();
+//        scrollPane.repaint();
 
         JTableHeader header = jTable.getTableHeader();
         header.setBackground(Color.gray);
@@ -223,13 +225,21 @@ public class ListParkir extends JFrame implements ActionListener {
             if(data.isEmpty() || tgl.isEmpty() || jam.isEmpty()){
                 JOptionPane.showMessageDialog(this, "Lengkapi input terlebih dahulu!");
             }else{
-                boolean cek = checkoutController.checkout(data, tgl, jam, Login.nama);
-                if(cek){
-                    JOptionPane.showMessageDialog(this, "Mobil Berhasil di Checkout !");
-                    this.setVisible(false);
-                    ListParkir.main(null);
+                if(parkirController.cekTanggal(data, tgl)){
+                    if(parkirController.cekJam(jam)){
+                        boolean cek = checkoutController.checkout(data, tgl, jam, Login.nama);
+                        if(cek){
+                            JOptionPane.showMessageDialog(this, "Mobil Berhasil di Checkout !");
+                            this.setVisible(false);
+                            ListParkir.main(null);
+                        }else{
+                            JOptionPane.showMessageDialog(this, "Plat Nomor yang dicari tidak ada !");
+                        }
+                    }else{
+                        JOptionPane.showMessageDialog(this, "Masukkan Format Jam yang benar. Contoh: 00:00");
+                    }
                 }else{
-                    JOptionPane.showMessageDialog(this, "Plat Nomor yang dicari tidak ada !");
+                    JOptionPane.showMessageDialog(this, "Masukkan Tanggal Checkout lebih dari Tanggal Masuk !");
                 }
             }
         }
@@ -238,7 +248,7 @@ public class ListParkir extends JFrame implements ActionListener {
 
     private static class ParkirTableModel extends AbstractTableModel{
         JCheckBox checkBox;
-        private final String[] COLOUMS = {"Nomor", "Plat Nomor", "Tanggal", "Jam", "Petugas"};
+        private final String[] COLOUMS = {"Nomor", "Plat Nomor", "Tanggal", "Jam", "Admin"};
         private final Class[] COLOUMS_CLASS = {Integer.class, String.class, String.class, String.class, String.class};
         private ArrayList<Parkir> parkirArrayList;
         private ParkirTableModel(ArrayList<Parkir> list){

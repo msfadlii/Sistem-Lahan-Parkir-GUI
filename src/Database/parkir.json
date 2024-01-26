@@ -18,33 +18,5 @@
     "admin": {
       "nama": "budi"
     }
-  },
-  {
-    "tanggalMasuk": "2024-01-08",
-    "jamMasuk": "14:15",
-    "kendaraan": {
-      "plat_nomer": "L 5712 II"
-    },
-    "admin": {
-      "nama": "budi"
-    }
-  },
-  {
-    "tanggalMasuk": "2024-01-15",
-    "jamMasuk": "11:30",
-    "kendaraan": {
-      "plat_nomer": "M 1122 EE"
-    },
-    "admin": {
-      "nama": "budi"
-    }
-  },
-  {
-    "tanggalMasuk": "2024-01-04",
-    "jamMasuk": "09:50",
-    "kendaraan": {
-      "plat_nomer": "L 4212 TU"
-    },
-    "admin": {}
   }
 ]
