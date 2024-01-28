@@ -1,4 +1,4 @@
-Aplikasi Sistem Lahan Parkir menggunakan Java GUI.
+Aplikasi Sistem Lahan Parkir menggunakan Java GUI.	
 Fitur : 
 - Login Admin
   ![image](https://github.com/msfadlii/Sistem-Lahan-Parkir-GUI/assets/114128985/5415c731-2d1a-4916-a1aa-30451b9ce511)
