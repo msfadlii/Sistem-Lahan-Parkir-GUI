@@ -1,9 +1,9 @@
 Aplikasi Sistem Lahan Parkir menggunakan Java GUI
 Fitur : 
 - Login Admin
-  ![image](https://github.com/msfadlii/Sistem-Lahan-Parkir-GUI/assets/114128985/9858fb3d-92d8-480e-8669-c40d5db5e6b3)
+  ![image](https://github.com/msfadlii/Sistem-Lahan-Parkir-GUI/assets/114128985/5415c731-2d1a-4916-a1aa-30451b9ce511)
 - Check-in Parkir
-  ![image](https://github.com/msfadlii/Sistem-Lahan-Parkir-GUI/assets/114128985/5f4bcaec-ad26-4a3e-ad5e-9919add24a74)
+  ![image](https://github.com/msfadlii/Sistem-Lahan-Parkir-GUI/assets/114128985/dcb548a6-db20-49d1-b190-0e65626ebbb9)
 - List Kendaraan yang sedang Parkir
   ![image](https://github.com/msfadlii/Sistem-Lahan-Parkir-GUI/assets/114128985/5dc027b4-85b2-471c-97bd-9c6765c8c473)
 - Check-out Parkir
