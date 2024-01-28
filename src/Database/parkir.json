@@ -18,5 +18,15 @@
     "admin": {
       "nama": "budi"
     }
+  },
+  {
+    "tanggalMasuk": "2024-01-12",
+    "jamMasuk": "14:15",
+    "kendaraan": {
+      "plat_nomer": "L 1234 OP"
+    },
+    "admin": {
+      "nama": "budi"
+    }
   }
 ]

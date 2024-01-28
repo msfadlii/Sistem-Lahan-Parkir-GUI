@@ -20,7 +20,6 @@ public class CheckoutController {
     ParkirModel parkirModel;
     DateTimeFormatter formatTanggal = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     DateTimeFormatter formatJam = DateTimeFormatter.ofPattern("HH:mm");
-    LocalDateTime now = LocalDateTime.now();
     public CheckoutController(){
         checkoutModel = new CheckoutModel();
         parkirModel = new ParkirModel();
@@ -67,6 +66,7 @@ public class CheckoutController {
     }
 
     public boolean cetakStruk(String plat, String jenis_cetak){
+        LocalDateTime now = LocalDateTime.now();
         String tanggal = formatTanggal.format(now);
         String jam = formatJam.format(now);
         String path = "src/Struk/";
